@@ -1,0 +1,22 @@
+td.td-delbtn,
+td.td-viewbtn,
+td.td-updatebtn {
+    background-color: rgb(245, 25, 91);
+    color: white;
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+td.td-viewbtn {
+    background-color: aquamarine !important;
+}
+td.td-updatebtn {
+    background-color: greenyellow;
+}
+table.userDisplayTable tr {
+    background-color: rgb(90, 82, 72);
+}
+table.userDisplayTable td {
+    color: white;
+}
