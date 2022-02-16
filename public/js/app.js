@@ -5582,6 +5582,7 @@ function LoginPage(_ref) {
       },
       children: "Please Login to continue"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+      className: "log-frm",
       children: ["Name/EmailId", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
         className: "lg-inp",
         type: "text",
@@ -5690,7 +5691,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var AuthContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createContext(true);
+var AuthContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createContext(false);
 function Main() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -5762,6 +5763,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -5779,7 +5786,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function Dashboard() {
+  var _jsx2, _jsx3, _jsx4, _jsx5;
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
       empData = _useState2[0],
@@ -5795,6 +5805,40 @@ function Dashboard() {
       closeView = _useState6[0],
       setCloseView = _useState6[1];
 
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState8 = _slicedToArray(_useState7, 2),
+      onDelete = _useState8[0],
+      setOnDelete = _useState8[1];
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    selectedState: "",
+    selectedCity: "",
+    totalState: [],
+    dependentCities: []
+  }),
+      _useState10 = _slicedToArray(_useState9, 2),
+      stateCity = _useState10[0],
+      setStateCity = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    FirstName: "Enter first Name",
+    LastName: "Enter Last Name",
+    Email_ID: "enter email",
+    State_ID: "select State",
+    City_ID: "select city"
+  }),
+      _useState12 = _slicedToArray(_useState11, 2),
+      employeeDetails = _useState12[0],
+      setEmployeeDetails = _useState12[1];
+
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    stat: false,
+    index: ""
+  }),
+      _useState14 = _slicedToArray(_useState13, 2),
+      update = _useState14[0],
+      setUpdate = _useState14[1];
+
   var x;
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     axios__WEBPACK_IMPORTED_MODULE_2___default().get("/home/empdata").then(function (res) {
@@ -5803,10 +5847,28 @@ function Dashboard() {
     })["catch"](function (err) {
       console.log(err);
     });
-    setCloseView(false);
-  }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("table", {
+    setCloseView(false); // axios
+    //     .get("/states")
+    //     .then((res) => {
+    //         setStateCity((prev) => ({
+    //             ...prev,
+    //             selectedState: [...res.data],
+    //         }));
+    //     })
+    //     .catch((err) => err);
+  }, [onDelete]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("from", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("select", {
+          options: stateCity.selectedState,
+          children: "State"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("select", {
+          options: stateCity.selectedState,
+          children: "State"
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("table", {
       className: "userDisplayTable",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tbody", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
@@ -5836,7 +5898,12 @@ function Dashboard() {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
               className: "td-delbtn",
               onClick: function onClick() {
-                axios__WEBPACK_IMPORTED_MODULE_2___default().post("home/empdata/".concat(item.user_ID));
+                axios__WEBPACK_IMPORTED_MODULE_2___default()["delete"]("/home/empdata/".concat(index + 1)).then(function (res) {
+                  return alert(res.data.message);
+                })["catch"](function (err) {
+                  return console.error(err);
+                });
+                setOnDelete(!onDelete);
               },
               children: "Delete"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
@@ -5850,27 +5917,116 @@ function Dashboard() {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
               className: "td-updatebtn",
               onClick: function onClick() {
-                axios__WEBPACK_IMPORTED_MODULE_2___default().post("home/empdata/".concat(item.user_ID));
+                // axios.post(
+                //     `home/empdata/update/${index + 1}`
+                // );
+                setEmployeeDetails(empData[index]);
+                setUpdate({
+                  status: true,
+                  index: index
+                });
               },
               children: "update"
             })]
           }, item.user_Id);
-        }), closeView ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
-            children: viewStudent.FirstName
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
-            children: viewStudent.LastName
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
-            children: viewStudent.State_ID
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-            onClick: function onClick() {
-              setCloseView(!closeView);
-            },
-            children: "X"
-          })]
-        }) : ""]
+        })]
       })
-    })
+    }), closeView ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "view",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
+        children: viewStudent.FirstName
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
+        children: viewStudent.LastName
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
+        children: viewStudent.State_ID
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "close-viewbtn",
+        onClick: function onClick() {
+          setCloseView(!closeView);
+        },
+        children: "close"
+      })]
+    }) : "", update.status ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+      method: "POST",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        children: "Please Enter updated values"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "text",
+        pattern: "^[a-zA-Z]+$",
+        className: "vali",
+        placeholder: employeeDetails.FirstName,
+        onChange: function onChange(e) {
+          setEmployeeDetails(function (prev) {
+            return _objectSpread(_objectSpread({}, prev), {}, {
+              FirstName: e.target.value
+            });
+          });
+        }
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", (_jsx2 = {
+        type: "text",
+        pattern: "^[a-zA-Z]+$",
+        className: "vali",
+        placeholder: "Enter Employee Last Name"
+      }, _defineProperty(_jsx2, "placeholder", employeeDetails.LastName), _defineProperty(_jsx2, "onChange", function onChange(e) {
+        setEmployeeDetails(function (prev) {
+          return _objectSpread(_objectSpread({}, prev), {}, {
+            LastName: e.target.value
+          });
+        });
+      }), _jsx2)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", (_jsx3 = {
+        type: "email",
+        placeholder: "Enter Employee Empail",
+        className: "vali"
+      }, _defineProperty(_jsx3, "placeholder", employeeDetails.Email_ID), _defineProperty(_jsx3, "onChange", function onChange(e) {
+        setEmployeeDetails(function (prev) {
+          return _objectSpread(_objectSpread({}, prev), {}, {
+            Email_ID: e.target.value
+          });
+        });
+      }), _jsx3)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", (_jsx4 = {
+        type: "text",
+        pattern: "^[a-zA-Z]+$",
+        placeholder: "Enter Employee State",
+        className: "vali"
+      }, _defineProperty(_jsx4, "placeholder", employeeDetails.State_ID), _defineProperty(_jsx4, "onChange", function onChange(e) {
+        setEmployeeDetails(function (prev) {
+          return _objectSpread(_objectSpread({}, prev), {}, {
+            State_ID: e.target.value
+          });
+        });
+      }), _jsx4)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", (_jsx5 = {
+        type: "text",
+        pattern: "^[a-zA-Z]+$",
+        placeholder: "Enter Employee City",
+        className: "vali"
+      }, _defineProperty(_jsx5, "placeholder", employeeDetails.City_ID), _defineProperty(_jsx5, "onChange", function onChange(e) {
+        setEmployeeDetails(function (prev) {
+          return _objectSpread(_objectSpread({}, prev), {}, {
+            City_ID: e.target.value
+          });
+        });
+      }), _jsx5)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        className: "applibtn",
+        onClick: function onClick(e) {
+          e.preventDefault();
+          axios__WEBPACK_IMPORTED_MODULE_2___default().post("/home/studentEntery/update/".concat(update.index + 1), _objectSpread({}, employeeDetails)).then(function (res) {// console.log(res);
+          })["catch"](function (err) {
+            return console.log(err);
+          });
+        },
+        children: "update"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        className: "applibtn",
+        onClick: function onClick() {
+          setUpdate(function (prev) {
+            return _objectSpread(_objectSpread({}, prev), {}, {
+              status: false
+            });
+          });
+        },
+        children: "cancle"
+      })]
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {})]
   });
 }
 
@@ -5885,11 +6041,17 @@ function Dashboard() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ MyData)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _MyData_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MyData.css */ "./resources/js/components/MyDate/MyData.css");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Mydata_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Mydata.css */ "./resources/js/components/MyDate/Mydata.css");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -5909,111 +6071,162 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-function MyData() {
-  var _jsx2;
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+
+
+
+function MyData() {
+  var _jsx2, _jsx3, _jsx4, _jsx5;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true),
       _useState2 = _slicedToArray(_useState, 2),
       addform = _useState2[0],
       setaddform = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
+    FirstName: "Enter first Name",
+    LastName: "Enter Last Name",
+    Email_ID: "enter email",
+    State_ID: "select State",
+    City_ID: "select city"
+  }),
+      _useState4 = _slicedToArray(_useState3, 2),
+      employeeDetails = _useState4[0],
+      setEmployeeDetails = _useState4[1];
 
   var clickbutton = function clickbutton() {
     setaddform(!addform);
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     className: "container",
     style: {
       backgroundColor: "red"
     },
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "row justify-content-center",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "ax",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("header", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "App",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("header", {
           className: "App-header",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            className: "applibtn",
             onClick: clickbutton,
             children: "Add Employee"
-          }), addform ? "" : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          }), addform ? "" : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
               className: "appli",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+                method: "POST",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
                   children: "Enter the Employee Detailes"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", (_jsx2 = {
-                  className: "form-input"
-                }, _defineProperty(_jsx2, "className", ""), _defineProperty(_jsx2, "type", "number"), _defineProperty(_jsx2, "placeholder", "Enter Employee id"), _jsx2)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                  className: "form-input",
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
                   type: "text",
                   pattern: "^[a-zA-Z]+$",
-                  placeholder: "Enter Employee First Name"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                  className: "form-input",
+                  className: "vali",
+                  placeholder: employeeDetails.FirstName,
+                  onChange: function onChange(e) {
+                    setEmployeeDetails(function (prev) {
+                      return _objectSpread(_objectSpread({}, prev), {}, {
+                        FirstName: e.target.value
+                      });
+                    });
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", (_jsx2 = {
                   type: "text",
                   pattern: "^[a-zA-Z]+$",
+                  className: "vali",
                   placeholder: "Enter Employee Last Name"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                  className: "form-input",
+                }, _defineProperty(_jsx2, "placeholder", employeeDetails.LastName), _defineProperty(_jsx2, "onChange", function onChange(e) {
+                  setEmployeeDetails(function (prev) {
+                    return _objectSpread(_objectSpread({}, prev), {}, {
+                      LastName: e.target.value
+                    });
+                  });
+                }), _jsx2)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", (_jsx3 = {
                   type: "email",
-                  placeholder: "Enter Employee Empail"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                  className: "form-input",
-                  type: "number",
-                  min: "999999999",
-                  placeholder: "Enter Employee Phone Number"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                  className: "form-input",
+                  placeholder: "Enter Employee Empail",
+                  className: "vali"
+                }, _defineProperty(_jsx3, "placeholder", employeeDetails.Email_ID), _defineProperty(_jsx3, "onChange", function onChange(e) {
+                  setEmployeeDetails(function (prev) {
+                    return _objectSpread(_objectSpread({}, prev), {}, {
+                      Email_ID: e.target.value
+                    });
+                  });
+                }), _jsx3)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", (_jsx4 = {
                   type: "text",
                   pattern: "^[a-zA-Z]+$",
-                  placeholder: "Enter Employee State"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                  className: "form-input",
+                  placeholder: "Enter Employee State",
+                  className: "vali"
+                }, _defineProperty(_jsx4, "placeholder", employeeDetails.State_ID), _defineProperty(_jsx4, "onChange", function onChange(e) {
+                  setEmployeeDetails(function (prev) {
+                    return _objectSpread(_objectSpread({}, prev), {}, {
+                      State_ID: e.target.value
+                    });
+                  });
+                }), _jsx4)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", (_jsx5 = {
                   type: "text",
                   pattern: "^[a-zA-Z]+$",
-                  placeholder: "Enter Employee City"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+                  placeholder: "Enter Employee City",
+                  className: "vali"
+                }, _defineProperty(_jsx5, "placeholder", employeeDetails.City_ID), _defineProperty(_jsx5, "onChange", function onChange(e) {
+                  setEmployeeDetails(function (prev) {
+                    return _objectSpread(_objectSpread({}, prev), {}, {
+                      City_ID: e.target.value
+                    });
+                  });
+                }), _jsx5)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                  className: "applibtn",
+                  onClick: function onClick(e) {
+                    e.preventDefault();
+                    axios__WEBPACK_IMPORTED_MODULE_0___default().post("/home/studentEntery", _objectSpread({}, employeeDetails)).then(function (res) {// console.log(res);
+                    })["catch"](function (err) {
+                      return console.log(err);
+                    });
+                  },
                   children: "save"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                  className: "applibtn",
                   onClick: clickbutton,
                   children: "cancle"
                 })]
               })
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("table", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
             className: "table",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("thead", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("tr", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
-                  className: "th"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("thead", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
+                  className: "th",
+                  children: " S.no"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
                   className: "th",
                   children: "Name"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
                   className: "th",
                   children: "Email"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
                   className: "th",
                   children: "Phone Number"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
                   className: "th",
                   children: "State"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
                   className: "th",
                   children: "City"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
                   className: "th",
                   children: "Action"
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("tbody", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("tr", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {})
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("tbody", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("tr", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {})
               })
             })]
           })]
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "card-body",
         children: "I'm an Appcomponent!"
       })]
@@ -6022,6 +6235,8 @@ function MyData() {
   // </div>
   ;
 }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MyData);
 
 /***/ }),
 
@@ -11141,7 +11356,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "input.lg-inp {\r\n    border: 2px solid rgba(223, 130, 130, 0.075);\r\n    border-radius: 20px;\r\n    height: 50px;\r\n    text-align: center;\r\n    width: 70%;\r\n}\r\nh1 {\r\n    color: rgb(63, 55, 55);\r\n    font-weight: bold;\r\n}\r\n\r\nform {\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-direction: column;\r\n    border-radius: 20px;\r\n    width: 50vw;\r\n    margin: auto;\r\n    height: 70vh;\r\n    align-items: center;\r\n    gap: 20px;\r\n    background-color: rgb(209, 108, 108);\r\n}\r\nbutton.subbtn {\r\n    background-color: rgb(25, 133, 133);\r\n    height: 20px;\r\n    width: 50%;\r\n    height: 30px;\r\n    color: white;\r\n    border-radius: 20px;\r\n}\r\ninput.lg-inp:focus {\r\n    outline: none;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "input.lg-inp {\r\n    border: 2px solid rgba(223, 130, 130, 0.075);\r\n    border-radius: 20px;\r\n    height: 50px;\r\n    text-align: center;\r\n    width: 70%;\r\n}\r\nh1 {\r\n    color: rgb(63, 55, 55);\r\n    font-weight: bold;\r\n}\r\n\r\n.log-frm {\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-direction: column;\r\n    border-radius: 20px;\r\n    width: 50vw;\r\n    margin: auto;\r\n    height: 70vh;\r\n    align-items: center;\r\n    gap: 20px;\r\n    background-color: rgb(209, 108, 108);\r\n}\r\n.subbtn {\r\n    background-color: rgb(25, 133, 133);\r\n    height: 20px;\r\n    width: 50%;\r\n    height: 30px;\r\n    color: white;\r\n    border-radius: 20px;\r\n}\r\n.lg-inp:focus {\r\n    outline: none;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11165,16 +11380,16 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "td.td-delbtn,\r\ntd.td-viewbtn,\r\ntd.td-updatebtn {\r\n    background-color: rgb(245, 25, 91);\r\n    color: white;\r\n    width: 100px;\r\n    height: 30px;\r\n    border-radius: 10px;\r\n    text-align: center;\r\n}\r\ntd.td-viewbtn {\r\n    background-color: aquamarine !important;\r\n}\r\ntd.td-updatebtn {\r\n    background-color: greenyellow;\r\n}\r\ntable.userDisplayTable tr {\r\n    background-color: rgb(90, 82, 72);\r\n}\r\ntable.userDisplayTable td {\r\n    color: white;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "td.td-delbtn,\r\ntd.td-viewbtn,\r\ntd.td-updatebtn,\r\ndiv.close-viewbtn {\r\n    margin: 10px;\r\n    background-color: rgb(245, 25, 91);\r\n    color: white;\r\n    width: 100px;\r\n    height: 30px;\r\n    border-radius: 10px;\r\n    text-align: center;\r\n}\r\ntd {\r\n    color: black;\r\n}\r\nh4 {\r\n    text-align: center;\r\n}\r\ndiv.view {\r\n    width: 50%;\r\n    margin: auto;\r\n    border-radius: 10px;\r\n    border: 2px solid rgba(255, 254, 254, 0.103);\r\n    box-shadow: 0px 10px 20px black;\r\n    margin-top: 10px;\r\n}\r\ndiv.close-viewbtn {\r\n    background-color: brown;\r\n    box-shadow: none !important;\r\n}\r\ntd.td-viewbtn {\r\n    background-color: aquamarine !important;\r\n}\r\ntd.td-updatebtn {\r\n    background-color: greenyellow;\r\n}\r\n\r\ntable.userDisplayTable {\r\n    margin: auto;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/MyDate/MyData.css":
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/MyDate/Mydata.css":
 /*!*************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/MyDate/MyData.css ***!
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/MyDate/Mydata.css ***!
   \*************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -11189,7 +11404,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".App-header {\r\n    background-color: hsl(221, 19%, 60%);\r\n    min-height: 100vh;\r\n    /* display: flex; */\r\n    flex-direction: column;\r\n    align-items: center;\r\n    justify-content: center;\r\n    font-size: calc(10px + 2vmin);\r\n    color: white;\r\n}\r\n\r\n.App-link {\r\n    color: #61dafb;\r\n}\r\n\r\n.td {\r\n    border: 1px solid #ffffff;\r\n    text-align: center;\r\n    padding: 0.5rem;\r\n    font-size: 0.7rem;\r\n    font-weight: bold;\r\n    font-stretch: 1rem;\r\n    -moz-column-gap: 5rem;\r\n         column-gap: 5rem;\r\n    width: 10vw;\r\n    justify-content: space-evenly;\r\n}\r\n\r\n.tda {\r\n    /* border: 1px solid #ffffff; */\r\n    text-align: center;\r\n    padding: 0.5rem;\r\n    font-size: 0.7rem;\r\n    font-weight: bold;\r\n    font-stretch: 1rem;\r\n    -moz-column-gap: 5rem;\r\n         column-gap: 5rem;\r\n    width: 10vw;\r\n    justify-content: space-evenly;\r\n    cursor: pointer;\r\n}\r\n.th {\r\n    color: #0f206c;\r\n    font-size: 0.7rem;\r\n    padding: 0.7rem;\r\n    /* justify-content: space-evenly; */\r\n    font-weight: bold;\r\n    font-stretch: 1rem;\r\n    text-align: center;\r\n\r\n    width: 7vw;\r\n    border-bottom: 1px solid #212121;\r\n    /* border-style: outset; */\r\n    /* border-style:solid ;\r\n    border-bottom: 1px solid #212121;\r\n    border:0px 0px 1px 0px; */\r\n}\r\n.table {\r\n    border-collapse: collapse;\r\n}\r\n\r\n.form {\r\n    display: flex;\r\n    /* gap: 5px; */\r\n    font-size: 0.8rem;\r\n    /* position: absolute; */\r\n    /* padding: 1rem; */\r\n}\r\ninput.form-input {\r\n    background-color: #61dafb !important;\r\n    position: absolute !important;\r\n    left: 40% !important;\r\n    top: 8% !important;\r\n    border-radius: 15% !important;\r\n    padding: 20px !important;\r\n    /* line-height: 1px; */\r\n    margin: 10px !important;\r\n    box-shadow: 10px 10px grey !important;\r\n}\r\ninput.form-input {\r\n    /* background-color: aquamarine; */\r\n    height: 4vh;\r\n    width: 20vw;\r\n    padding: 10px;\r\n\r\n    margin: 10px;\r\n    font-size: 20px;\r\n    box-shadow: 6px 6px grey;\r\n}\r\n/* .appli */\r\nbutton {\r\n    text-align: center;\r\n    padding: 10px;\r\n    font-size: 20px;\r\n    box-shadow: 6px 6px grey;\r\n\r\n    margin: 5px;\r\n}\r\n.ax {\r\n    text-align: center;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".App-header {\r\n    background-color: hsl(221, 19%, 60%);\r\n    min-height: 100vh;\r\n    /* display: flex; */\r\n    flex-direction: column;\r\n    align-items: center;\r\n    justify-content: center;\r\n    font-size: calc(10px + 2vmin);\r\n    color: white;\r\n}\r\n\r\n.App-link {\r\n    color: #61dafb;\r\n}\r\n\r\n.td {\r\n    border: 1px solid #ffffff;\r\n    text-align: center;\r\n    padding: 0.5rem;\r\n    font-size: 0.7rem;\r\n    font-weight: bold;\r\n    font-stretch: 1rem;\r\n    -moz-column-gap: 5rem;\r\n         column-gap: 5rem;\r\n    width: 10vw;\r\n    justify-content: space-evenly;\r\n}\r\n\r\n.tda {\r\n    /* border: 1px solid #ffffff; */\r\n    text-align: center;\r\n    padding: 0.5rem;\r\n    font-size: 0.7rem;\r\n    font-weight: bold;\r\n    font-stretch: 1rem;\r\n    -moz-column-gap: 5rem;\r\n         column-gap: 5rem;\r\n    width: 10vw;\r\n    justify-content: space-evenly;\r\n    cursor: pointer;\r\n}\r\n.th {\r\n    color: #0f206c;\r\n    font-size: 0.7rem;\r\n    padding: 0.7rem;\r\n    /* justify-content: space-evenly; */\r\n    font-weight: bold;\r\n    font-stretch: 1rem;\r\n    text-align: center;\r\n\r\n    width: 7vw;\r\n    border-bottom: 1px solid #212121;\r\n    /* border-style: outset; */\r\n    /* border-style:solid ;\r\n    border-bottom: 1px solid #212121;\r\n    border:0px 0px 1px 0px; */\r\n}\r\n.table {\r\n    border-collapse: collapse;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n}\r\n\r\n.appli {\r\n    background-color: #61dafb;\r\n    position: absolute;\r\n    left: 40%;\r\n    top: 8%;\r\n    border-radius: 15%;\r\n    padding: 20px;\r\n    /* line-height: 1px; */\r\n    margin: 10px;\r\n    box-shadow: 10px 10px grey;\r\n}\r\n.vali {\r\n    /* background-color: aquamarine; */\r\n    height: 4vh;\r\n    width: 20vw;\r\n    padding: 10px;\r\n\r\n    margin: 10px;\r\n    font-size: 20px;\r\n    box-shadow: 6px 6px grey;\r\n}\r\n/* .appli */\r\n.applibtn {\r\n    padding: 10px;\r\n    font-size: 20px;\r\n    box-shadow: 6px 6px grey;\r\n\r\n    margin: 5px;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -61347,9 +61562,9 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
-/***/ "./resources/js/components/MyDate/MyData.css":
+/***/ "./resources/js/components/MyDate/Mydata.css":
 /*!***************************************************!*\
-  !*** ./resources/js/components/MyDate/MyData.css ***!
+  !*** ./resources/js/components/MyDate/Mydata.css ***!
   \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -61360,7 +61575,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_MyData_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./MyData.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/MyDate/MyData.css");
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_Mydata_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./Mydata.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/MyDate/Mydata.css");
 
             
 
@@ -61369,11 +61584,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_MyData_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_Mydata_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_MyData_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_Mydata_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 

@@ -7,7 +7,7 @@ import Register from "../LoginPage/Register";
 import MyData from "../MyDate/MyData";
 import Autorization from "../Auth/Autorization";
 import Dashboard from "../MyDate/Dashboard";
-export const AuthContext = React.createContext(true);
+export const AuthContext = React.createContext(false);
 export default function Main() {
     const [isLogged, setIsLogged] = useState(false);
     let FormHandling = (x) => {

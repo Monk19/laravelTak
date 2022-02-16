@@ -30,7 +30,7 @@ export default function LoginPage({ handleForm }) {
     return (
         <div>
             <h1 style={{ textAlign: "center" }}>Please Login to continue</h1>
-            <form>
+            <form className="log-frm">
                 Name/EmailId
                 <input
                     className="lg-inp"
@@ -53,7 +53,9 @@ export default function LoginPage({ handleForm }) {
                         });
                     }}
                 />
-                <button className="subbtn" onClick={submitForm}>Submit</button>
+                <button className="subbtn" onClick={submitForm}>
+                    Submit
+                </button>
             </form>
         </div>
     );

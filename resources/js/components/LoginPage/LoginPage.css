@@ -10,7 +10,7 @@ h1 {
     font-weight: bold;
 }
 
-form {
+.log-frm {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -22,7 +22,7 @@ form {
     gap: 20px;
     background-color: rgb(209, 108, 108);
 }
-button.subbtn {
+.subbtn {
     background-color: rgb(25, 133, 133);
     height: 20px;
     width: 50%;
@@ -30,6 +30,6 @@ button.subbtn {
     color: white;
     border-radius: 20px;
 }
-input.lg-inp:focus {
+.lg-inp:focus {
     outline: none;
 }

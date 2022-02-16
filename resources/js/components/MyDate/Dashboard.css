@@ -1,6 +1,8 @@
 td.td-delbtn,
 td.td-viewbtn,
-td.td-updatebtn {
+td.td-updatebtn,
+div.close-viewbtn {
+    margin: 10px;
     background-color: rgb(245, 25, 91);
     color: white;
     width: 100px;
@@ -8,15 +10,31 @@ td.td-updatebtn {
     border-radius: 10px;
     text-align: center;
 }
+td {
+    color: black;
+}
+h4 {
+    text-align: center;
+}
+div.view {
+    width: 50%;
+    margin: auto;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 254, 254, 0.103);
+    box-shadow: 0px 10px 20px black;
+    margin-top: 10px;
+}
+div.close-viewbtn {
+    background-color: brown;
+    box-shadow: none !important;
+}
 td.td-viewbtn {
     background-color: aquamarine !important;
 }
 td.td-updatebtn {
     background-color: greenyellow;
 }
-table.userDisplayTable tr {
-    background-color: rgb(90, 82, 72);
-}
-table.userDisplayTable td {
-    color: white;
+
+table.userDisplayTable {
+    margin: auto;
 }
